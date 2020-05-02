@@ -16,11 +16,11 @@ if (process.argv.length === 3) {
   console.log("Random colour: " + colour);
 }
 var hsl = convert.hex.hsl(csscolours[colour]);
-console.log(hsl)
 
 lx.on('bulb', function(b) {
   console.log('Bulb found: ' + b.name + " : " + b.addr.toString("hex"));
   lx.lightsColour((hsl[0] / 360 ) * 0xffff, (hsl[1] / 100 ) * 0xffff, (hsl[2] / 100 ) * 0xffff, 0xffff, 0);
+  // this ain't pretty but it works for now:
   setTimeout(function(){
     process.exit()
   }, 1000);
